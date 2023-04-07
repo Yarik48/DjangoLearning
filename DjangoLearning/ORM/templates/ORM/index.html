@@ -1,0 +1,30 @@
+{% load ORM_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<h1>netboock</h1>
+<h4>bne</h4>
+<a href="{% url 'registration' %}">registration</a>
+{% get_cats as cats %}
+                {% for cat in cats %}
+                <li><a class="dropdown-item" href="{% url 'show_cat' cat.id %}">{{ cat }}</a></li>
+                {% endfor %}
+{% for boock in boocks %}
+
+<div style="background-color:#f7f7f7; width:233px; border-radius:33px;" align="center">
+    <a href="{{ boock.get_absolute_url }}">
+    <h1 align="center">{{ boock.name }}</h1>
+<img src="{{ boock.boock_pic.url }}" style="width:133px; position:relative; ">
+
+</a>
+    </div>
+
+{% endfor %}
+
+</body>
+</html>
